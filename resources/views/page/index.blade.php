@@ -19,8 +19,8 @@
 
 
           <div class="card">
-            <h3>{{$post->updated_at}}</h3>
-            <h4>{{$post->title}}</h4>
+            <h2>{{$post->author->firstname}} {{$post->author->lastname}}</h2>
+            <h3>{{$post->title}}</h3>
             <p class="post-content">{{$post->content}}</p>
 
             @foreach($post->categories as $category)
@@ -30,6 +30,7 @@
                 </a>
               </span>
             @endforeach
+            <h6>{{$post->updated_at}}</h6>
 
             <a class="link" href="{{route('edit.post',$post->id)}}"><i class="fas fa-edit"></i></a>
             <form class="" action="{{route('del.post',$post->id)}}" method="post">
