@@ -24,10 +24,9 @@ class PostRequest extends FormRequest
      public function rules()
      {
          return [
-           "title"=>"required",
-           "writer_name"=>"required",
-           "writer_lastname"=>"required",
-           "content"=>"required"
+           "title"=>"required|min:5",
+           "content"=>"required|min:20", 
+           "categories"=>"required"
          ];
      }
 
@@ -35,9 +34,8 @@ class PostRequest extends FormRequest
      {
        return[
          "title.required"=>"Miss title",
-         "writer_name.required"=>"miss name",
-         "writer_lastname.required"=>"miss last name",
-         "content.required"=>"miss content"
+         "content.required"=>"miss content",
+         "categories.required"=>"miss category"
        ];
      }
 }

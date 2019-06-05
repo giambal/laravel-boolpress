@@ -6,14 +6,11 @@
     <div class="index-container">
 
       <div class="left-cont">
-        <h2><a href="{{route('post.create')}}">Create New Post</a></h2>
+        <h2><a href="{{route('create.post')}}">Create New Post</a></h2>
         <div class="check-container">
 
-          <h3><a href="{{route('category.index')}}">choose a chategory: </a></h3>
-          @foreach($categories as $category)
+          <h3><a href="{{route('category.list')}}">choose a chategory: </a></h3>
 
-            <input type="checkbox" name="{{$category->type}}" value="{{$category->type}}"><span>{{$category->type}}</span><br>
-          @endforeach
         </div>
       </div>
 
@@ -22,19 +19,25 @@
 
 
           <div class="card">
-            <h3>{{$post->writer_name}} {{$post->writer_lastname}}</h3>
+            <h3>{{$post->updated_at}}</h3>
             <h4>{{$post->title}}</h4>
             <p class="post-content">{{$post->content}}</p>
+
             @foreach($post->categories as $category)
-              <p>Category: {{$category->type}}</p>
+              <span>
+                <a href="{{route('posts.by.category', $category->type) }}">
+                  #{{$category->type}}
+                </a>
+              </span>
             @endforeach
-            <a class="link" href="{{ route('post.edit', $post->id ) }}"><i class="fas fa-edit"></i></a>
-            <form class="" action="{{ route('post.destroy' , $post->id ) }}" method="post">
+
+            <a class="link" href="{{route('edit.post',$post->id)}}"><i class="fas fa-edit"></i></a>
+            <form class="" action="{{route('del.post',$post->id)}}" method="post">
               @csrf
               @method('DELETE')
               <button class="del-butt" type="submit"><i class="fas fa-trash-alt"></i></button>
             </form>
-            <div class="readmore"><a href="{{route('post.show', $post->id)}}">Read Post</a></div>
+            <div class="readmore"><a href="{{route('show.post',$post->id)}}">Read Post</a></div>
           </div>
 
         @endforeach

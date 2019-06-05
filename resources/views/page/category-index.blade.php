@@ -1,17 +1,19 @@
 @extends('layout.layout')
 
 @section('content')
+  <div class="categories-index">
 
-  <h1>categories: </h1>
+    <h1>filter post by categories</h1>
 
-  <form class="" action="index.html" method="post">
-    @foreach($categories as $category)
+    <div class="category-list">
+      @foreach($categories as $category)
 
-      <input type="checkbox" name="{{$category->type}}" value=""><span>{{$category->type}}</span><br>
+        <h4><i class="fas fa-heart"></i><a href="{{route('posts.by.category', $category->type) }}">{{$category->type}}</a></h4>
 
-    @endforeach
-    <button type="submit" name="button">submit</button>
-  </form>
+      @endforeach
+    </div>
+
+  </div>
 
 
 @stop

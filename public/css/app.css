@@ -14,7 +14,7 @@ header {
   width: 100vw;
   height: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid black;
 }
@@ -23,6 +23,32 @@ header h1 {
   font-weight: 800;
   color: #7d96fa;
   font-size: 2.5em;
+}
+
+header h2 {
+  /* visited link */
+  /* mouse over link */
+  /* selected link */
+}
+
+header h2 a:link {
+  color: white;
+  text-decoration: none;
+}
+
+header h2 a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+header h2 a:hover {
+  color: #7d96fa;
+  text-decoration: none;
+}
+
+header h2 a:active {
+  color: #7d96fa;
+  text-decoration: none;
 }
 
 footer {
@@ -89,7 +115,7 @@ footer div {
   overflow: auto;
 }
 
-.index-container .posts-containter .card {
+.card {
   width: 80%;
   border: 1px solid black;
   margin: 20px;
@@ -98,27 +124,51 @@ footer div {
   background-color: white;
 }
 
-.index-container .posts-containter .card h3 {
+.card h3 {
   color: #6464fa;
   padding: 10px;
 }
 
-.index-container .posts-containter .card h4 {
+.card h4 {
   padding: 10px;
 }
 
-.index-container .posts-containter .card p {
+.card p {
   padding: 10px;
 }
 
-.index-container .posts-containter .card .post-content {
+.card span {
+  padding: 10px;
+}
+
+.card span a:link {
+  color: gray;
+}
+
+.card span a:visited {
+  text-decoration: none;
+  color: gray;
+}
+
+.card span a:hover {
+  text-decoration: none;
+  color: #7d96fa;
+}
+
+.card span a:active {
+  text-decoration: none;
+  color: gray;
+}
+
+.card .post-content {
   border: 1px solid black;
+  margin-bottom: 10px;
 }
 
-.index-container .posts-containter .card button {
+.card button {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  bottom: 10px;
+  left: 50px;
   width: 20px;
   border-radius: 5px;
   background-color: #6464fa;
@@ -127,18 +177,18 @@ footer div {
   font-size: 15px;
 }
 
-.index-container .posts-containter .card .link {
+.card .link {
   position: absolute;
   bottom: 10px;
   left: 20px;
 }
 
-.index-container .posts-containter .card .readmore {
+.card .readmore {
   width: 100px;
   text-align: center;
   position: absolute;
   bottom: 10px;
-  left: 50px;
+  right: 20px;
   padding: 5px;
   background-color: #6464fa;
   border: 1px solid white;
@@ -147,8 +197,107 @@ footer div {
   border-radius: 5px;
 }
 
-.create-container {
+.card .readmore a:link {
+  text-decoration: none;
+  color: white;
+}
+
+.categories-index {
+  background-color: #b4b4b4;
+  width: 100vw;
+  height: calc(100vh - 150px);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
+.categories-index h1 {
+  color: black;
+  padding: 25px;
+}
+
+.categories-index h4 {
+  padding: 10px;
+}
+
+.categories-index h4 a:link {
+  text-decoration: none;
+  color: #6464fa;
+}
+
+.categories-index h4 a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.categories-index h4 a:visited {
+  text-decoration: none;
+  color: #6464fa;
+}
+
+.categories-index h4 a:active {
+  color: #6464fa;
+}
+
+.categories-index .fa-trash-alt {
+  color: white;
+  text-align: center;
+}
+
+.show-container {
+  background-color: #b4b4b4;
+  width: 100vw;
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-index {
+  background-color: #b4b4b4;
+  width: 100vw;
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
+.create-index h1 {
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+.create-index label {
+  display: block;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5em;
+}
+
+.create-index .input-text {
+  height: 50px;
+  width: 200px;
+  border: 2px solid #6464fa;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+.create-index .input-check {
+  padding: 10px;
+}
+
+.create-index button {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #6464fa;
+  text-align: center;
+  margin: 20px 55px;
+  padding: 10px;
+  color: white;
 }
 

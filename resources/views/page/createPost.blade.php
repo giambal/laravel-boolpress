@@ -2,39 +2,30 @@
 
 @section('content')
 
-  <div class="link">
+  <div class="create-index">
 
-    <a href="{{route('post.index')}}">Back to home</a>
-  </div>
+    <h1>Create New post</h1>
 
-  <div class="create-container">
-
-    <form action="{{ route('post.store')}}" method="post">
+    <form class="" action="{{route('save.post')}}" method="post">
       @csrf
-      <div class="formDiv">
+      @method('POST')
 
-        <label for="title">Title</label><br>
-        <input type="text" name="title" value="">
-      </div>
-      <div class="formDiv">
 
-        <label for="writer_name">Name</label><br>
-        <input type="text" name="writer_name" value="">
-      </div>
-      <div class="formDiv">
+        <div class="formDiv">
+          <label for="title">Title</label>
+          <input class="input-text" type="text" name="title" value="">
+        </div>
+        <div class="formDiv">
+          <label for="content">Content</label>
+          <input class="input-text" type="text" name="content" value="">
+        </div>
+        <button type="submit" name="button">Share New Post</button>
 
-        <label for="writer_lastname">Last name</label><br>
-        <input type="text" name="writer_lastname" value="">
-      </div>
-      <div class="formDiv">
+          <p>choose new category:</p>
+        @foreach($categories as $category)
+          <span><input class="input-check" type="checkbox" name="categories[]" value="{{$category->id}}">{{$category->type}}</span><br>
+        @endforeach
 
-        <label for="content">write something</label><br>
-        <input type="text" name="content" value="">
-      </div>
-
-      <!-- come mettere la categoria? -->
-      
-      <button type="submit" name="">Share Post</button>
     </form>
   </div>
 

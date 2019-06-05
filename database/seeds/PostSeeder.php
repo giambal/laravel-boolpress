@@ -11,7 +11,7 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Post::class,8)->create()
+        factory(App\Post::class,100)->create()
                 ->each(function($post){
 
                   $categories= App\Category::inRandomOrder()->take(rand(1,3))->get();

@@ -9,8 +9,6 @@ class Post extends Model
   protected $fillable = [
 
     "title",
-    "writer_name",
-    "writer_lastname",
     "content"
   ];
 

@@ -1,24 +1,31 @@
 @extends ('layout.layout')
 
 @section('content')
-<div class="link">
 
-  <a href="{{route('post.index')}}">Back to home</a>
-</div>
-
-<div class="index-container">
+<div class="show-container">
 
   <div class="posts-containter">
 
 
     <div class="card">
-      <h3>{{$post->writer_name}} {{$post->writer_lastname}}</h3>
-      <h4><a href="{{route('post.show', $post->id)}}">{{$post->title}}</a></h4>
-      <p>{{$post->content}}</p>
+      <h3>{{$post->updated_at}}</h3>
+      <h4>{{$post->title}}</h4>
+      <p class="post-content">{{$post->content}}</p>
+
       @foreach($post->categories as $category)
-        <p>Category: {{$category->type}}</p>
+        <span>
+          <a href="{{route('posts.by.category', $category->type) }}">
+            #{{$category->type}}
+          </a>
+        </span>
       @endforeach
-      <a class="link" href="{{ route('post.edit', $post->id ) }}"><i class="fas fa-edit"></i></a>
+
+      <a class="link" href="#"><i class="fas fa-edit"></i></a>
+      <form class="" action="#" method="post">
+        @csrf
+        @method('DELETE')
+        <button class="del-butt" type="submit"><i class="fas fa-trash-alt"></i></button>
+      </form>
     </div>
 
   </div>

@@ -14,7 +14,9 @@
     </head>
     <body>
       <header>
+        <h1><i class="fas fa-comment-alt"></i></h1>
         <h1>Social Platform</h1>
+        <h2><a class="homeBtn" href="{{route('home')}}">HOME PAGE</a></h2>
       </header>
 
       @if ($errors->any())
