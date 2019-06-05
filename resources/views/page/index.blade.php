@@ -11,6 +11,36 @@
 
           <h3><a href="{{route('category.list')}}">choose a chategory: </a></h3>
 
+          <form class="" action="{{route('search')}}" method="get">
+            <h1>Search:</h1>
+            <div class="formDiv">
+              <label for="title">Title</label><br>
+              <input type="text" name="title" value="">
+            </div>
+            <div class="formDiv">
+              <label for="content">Content</label><br>
+              <input type="text" name="content" value="">
+            </div>
+            <div class="formDiv">
+              <label for="category">Category</label><br>
+              <select name="category">
+                  <option value="">choose a category</option>
+                  @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->type}}</option>
+                  @endforeach
+              </select>
+            </div>
+            <div class="formDiv">
+              <label for="author">Author</label><br>
+              <select name="author">
+                <option value="">choose an author</option>
+                @foreach($authors as $author)
+                  <option value="{{$author->id}}">{{$author->firstname}} {{$author->lastname}}</option>
+                @endforeach
+            </select>
+            </div>
+            <input type="submit" name="" value="SEARCH">
+          </form>
         </div>
       </div>
 

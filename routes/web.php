@@ -9,3 +9,4 @@ Route::post('/admin/post/new','postController@savePost')->name('save.post');
 Route::get('/edit/{id}','postController@editPost')->name('edit.post');
 Route::patch('/edit/{id}','postController@updatePost')->name('update.post');
 Route::delete('/destroy/{id}','postController@deletePost')->name('del.post');
+Route::get('/search','homeController@search')->name('search');
