@@ -24,9 +24,10 @@ class EditRequest extends FormRequest
     public function rules()
     {
       return [
-        "title"=>"required|min:5",
-        "content"=>"required|min:20",
-        "categories"=>"required"
+        "title"=>"required",
+        "content"=>"required",
+        "categories"=>"required",
+        "author_id"=>"required"
       ];
     }
 
@@ -35,7 +36,8 @@ class EditRequest extends FormRequest
       return[
         "title.required"=>"Miss title",
         "content.required"=>"miss content",
-        "categories.required"=>"miss category"
+        "categories.required"=>"miss category",
+        "author_id.requeired"=>"miss author"
       ];
     }
 }

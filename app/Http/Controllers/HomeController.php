@@ -28,6 +28,9 @@ class HomeController extends Controller
 
       $query=Post::query();
 
+      if ($category) {
+        $query= Category::findOrFail($category)->posts();
+      }
       if ($title) {
         $query= $query->where('title','LIKE', '%' . $title . '%');
       }
@@ -37,9 +40,6 @@ class HomeController extends Controller
       if ($author) {
         $query= $query->where('author_id' , $author);
       }
-      // if ($category) {
-      //   $query= $query->where('category_id' , $category);
-      // }
 
       $posts=$query->get();
       $categories=Category::all();

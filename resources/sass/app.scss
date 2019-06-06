@@ -53,6 +53,7 @@ header{
   }
 }
 
+
 footer{
 
   width: 100vw;
@@ -313,6 +314,8 @@ footer{
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  position: relative;
+
 
   h1{
     margin-top: 20px;
@@ -337,9 +340,16 @@ footer{
     text-align: center;
   }
 
-  .input-check{
+  .checkbox-cont{
 
-    padding: 10px;
+    p{
+      padding: 10px;
+    }
+
+    .input-check{
+
+      padding: 10px;
+    }
   }
 
   button{
@@ -351,6 +361,9 @@ footer{
     margin: 20px 55px;
     padding: 10px;
     color: white;
+    position: absolute;
+    top: 100px;
+    right: 200px;
   }
 
 }

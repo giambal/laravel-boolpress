@@ -293,6 +293,7 @@ footer div {
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  position: relative;
 }
 
 .create-index h1 {
@@ -318,7 +319,11 @@ footer div {
   text-align: center;
 }
 
-.create-index .input-check {
+.create-index .checkbox-cont p {
+  padding: 10px;
+}
+
+.create-index .checkbox-cont .input-check {
   padding: 10px;
 }
 
@@ -330,5 +335,8 @@ footer div {
   margin: 20px 55px;
   padding: 10px;
   color: white;
+  position: absolute;
+  top: 100px;
+  right: 200px;
 }
 

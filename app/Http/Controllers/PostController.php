@@ -9,6 +9,7 @@ use App\Http\Requests\EditRequest;
 
 use App\Category;
 use App\Post;
+use App\Author;
 
 class PostController extends Controller
 {
@@ -23,17 +24,23 @@ class PostController extends Controller
   public function createPost()
   {
     $categories=Category::all();
-    return view('page.createPost',compact('categories'));
+    $authors=Author::all();
+    return view('page.createPost',compact('categories','authors'));
   }
 
   public function savePost(PostRequest $request)
   {
     $validateData=$request->validated();
-    $post=Post::create($validateData);
+    // dd($validateData);
+
+    $authorId=$validateData['author_id'];
+    $author=Author::find($authorId);
     $categoriesId=$validateData['categories'];
     $categories=Category::find($categoriesId);
 
+    $post=Post::create($validateData);
     $post->categories()->attach($categories);
+    $post->author()->associate($author);
 
     return redirect('/');
   }
@@ -42,7 +49,8 @@ class PostController extends Controller
   {
     $post=Post::findOrFail($id);
     $categories=Category::all();
-    return view('page.edit-post',compact('post','categories'));
+    $authors=Author::all();
+    return view('page.edit-post',compact('post','categories','authors'));
   }
 
   public function updatePost(EditRequest $request,$id)
@@ -51,11 +59,20 @@ class PostController extends Controller
     // dd($request->all());
     $validateData=$request->validated();
     $post=Post::findOrFail($id);
+    // print_r($post);die();
     $post->update($validateData);
+    // print_r($validateData); die();
+
+
+
     $categoriesId=$validateData['categories'];
     $categories=Category::find($categoriesId);
 
+    $authorId=$validateData['author_id'];
+    $author=Author::find($authorId);
+
     $post->categories()->sync($categories);
+    $post->author()->associate($author);
 
     return redirect('/');
   }

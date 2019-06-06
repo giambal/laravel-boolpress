@@ -41,7 +41,7 @@
       @yield('content')
 
 
-      <footer>
+      <footer class="foot">
         <div class="">
           Made By Giammarco.
         </div>

@@ -21,8 +21,8 @@
       @endforeach
       <h6>{{$post->updated_at}}</h6>
 
-      <a class="link" href="#"><i class="fas fa-edit"></i></a>
-      <form class="" action="#" method="post">
+      <a class="link" href="{{route('edit.post',$post->id)}}"><i class="fas fa-edit"></i></a>
+      <form class="" action="{{route('del.post',$post->id)}}" method="post">
         @csrf
         @method('DELETE')
         <button class="del-butt" type="submit"><i class="fas fa-trash-alt"></i></button>

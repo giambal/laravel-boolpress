@@ -25,8 +25,9 @@ class PostRequest extends FormRequest
      {
          return [
            "title"=>"required|min:5",
-           "content"=>"required|min:20", 
-           "categories"=>"required"
+           "content"=>"required|min:20",
+           "categories"=>"required",
+           "author_id"=>""
          ];
      }
 
@@ -35,7 +36,8 @@ class PostRequest extends FormRequest
        return[
          "title.required"=>"Miss title",
          "content.required"=>"miss content",
-         "categories.required"=>"miss category"
+         "categories.required"=>"miss category",
+         "author_id"=>"miss author"
        ];
      }
 }

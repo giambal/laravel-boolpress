@@ -19,6 +19,14 @@
           <label for="content">Content</label>
           <input class="input-text" type="text" name="content" value="">
         </div>
+        <div class="formDiv">
+          <label for="author">Author</label><br>
+          <select name="author_id">
+            <option value="">choose an author</option>
+            @foreach($authors as $author)
+              <option value="{{$author->id}}">{{$author->firstname}} {{$author->lastname}}</option>
+            @endforeach
+        </select>
         <button type="submit" name="button">Share New Post</button>
 
           <p>choose new category:</p>
@@ -27,6 +35,8 @@
         @endforeach
 
     </form>
+  </div>
+
   </div>
 
 @stop
